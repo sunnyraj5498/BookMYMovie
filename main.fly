@@ -1,0 +1,66 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d96fa9d3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from seats import database\n",
+    "from seats import functions\n",
+    "print(\"Welcome to Bookmymovie.com\")\n",
+    "rows = int(input(\"\\n Enter number of rows:\"))\n",
+    "columns = int(input(\"\\n Enter the number of seats in each row:\"))\n",
+    "functions.set_seating(rows,columns)\n",
+    "\n",
+    "\n",
+    "n=0\n",
+    "while n!=5:\n",
+    "    print('\\n Please enter the respective number \\n 1. Show the Seating \\n 2. Book a ticket \\n 3. Show Statistics \\n 4. Show booked ticket info \\n 5. Exit \\n')\n",
+    "    n=int(input())\n",
+    "    if n==1:\n",
+    "        functions.Seat_map(rows,columns)\n",
+    "    elif n==2:\n",
+    "        functions.book_ticket(rows,columns)\n",
+    "        \n",
+    "        \n",
+    "    elif n==3:\n",
+    "        print(\"Number of ticket's purchased: \"+str(database.tickets_booked))\n",
+    "        print(\"Percentage of ticket's booked: \"+str(round(((database.tickets_booked)/(rows*columns))*100 , 2))+\" %\")\n",
+    "        print(\"Current Income: \"+\"$ \"+str(database.current_income))\n",
+    "        print(\"Total Income : \"+\"$ \"+str(database.Total_Income))\n",
+    "\n",
+    "    elif n==4:\n",
+    "        try:\n",
+    "            i=int(input('Enter row: '))\n",
+    "            j=int(input('Enter column: '))\n",
+    "        except:\n",
+    "            print('Please enter a valid number')\n",
+    "\n",
+    "        functions.info(i,j)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
